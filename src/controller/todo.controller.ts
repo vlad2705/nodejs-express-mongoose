@@ -26,11 +26,11 @@ export class TodoController extends Controller {
 
     @Put('/{id}')
     public async update(id: string, @BodyProp() description: string): Promise<void> {
-        await TodoModel.findOneAndUpdate(id, {description});
+        await TodoModel.findOneAndUpdate({id: id}, {description});
     }
 
     @Delete('/{id}')
     public async delete(id: string): Promise<void> {
-        await TodoModel.findOneAndDelete(id);
+        await TodoModel.findOneAndDelete({id: id});
     }
 }
